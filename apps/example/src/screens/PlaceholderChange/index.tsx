@@ -20,11 +20,11 @@ const PlaceholderChange = () => {
     undefined,
   );
   const [changeCount, setChangeCount] = React.useState(0);
-  const [lastValue, setLastValue] = React.useState("");
+  const [lastValue, setLastValue] = React.useState("01.01.2025");
 
   const handleFocus = React.useCallback(() => {
     // Change placeholder on focus to trigger the bug
-    setPlaceholder("+1 (000) 000-0000");
+    setPlaceholder("DD.MM.YYYY");
   }, []);
 
   const handleBlur = React.useCallback(() => {
@@ -64,8 +64,10 @@ const PlaceholderChange = () => {
       </View>
 
       <TextInput
-        keyboardType="phone-pad"
-        mask="+1 ([000]) [000]-[0000]"
+        controlled
+        initialValue={lastValue}
+        keyboardType="number-pad"
+        mask="[00].[00].[0000]"
         placeholder={placeholder}
         onBlur={handleBlur}
         onChangeText={handleChangeText}
