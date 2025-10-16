@@ -46,12 +46,16 @@ class AdvancedTextInputMaskDecoratorView(
     }
 
   private fun maybeUpdateText() {
+    isSettingFromJS = true
     maskedTextChangeListener?.setText(textField?.text.toString())
+    isSettingFromJS = false
   }
 
   private fun applyDefaultValue() {
     val nextDefaultValue = value ?: defaultValue
+    isSettingFromJS = true
     nextDefaultValue?.let { maskedTextChangeListener?.setText(it, false) }
+    isSettingFromJS = false
   }
 
   override fun onAttachedToWindow() {

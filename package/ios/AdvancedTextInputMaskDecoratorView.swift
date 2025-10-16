@@ -28,6 +28,7 @@ class AdvancedTextInputMaskDecoratorView: UIView {
 
   @objc private var primaryMaskFormat: NSString = "" {
     didSet {
+      guard oldValue != primaryMaskFormat else { return }
       guard let maskInputListener = maskInputListener else { return }
       maskInputListener.primaryMaskFormat = primaryMaskFormat as String
 
@@ -69,6 +70,7 @@ class AdvancedTextInputMaskDecoratorView: UIView {
 
   @objc private var isRTL: Bool = false {
     didSet {
+      guard oldValue != isRTL else { return }
       maskInputListener?.rightToLeft = isRTL
 
       maybeUpdateText(text: textField?.allText ?? "")
@@ -98,6 +100,7 @@ class AdvancedTextInputMaskDecoratorView: UIView {
 
   @objc private var allowedKeys: NSString? {
     didSet {
+      guard oldValue != allowedKeys else { return }
       let allowedKeys = (allowedKeys ?? "") as String
       maskInputListener?.allowedKeys = allowedKeys
       guard let textField = textField else { return }
@@ -110,12 +113,14 @@ class AdvancedTextInputMaskDecoratorView: UIView {
 
   @objc private var defaultValue: NSString = "" {
     didSet {
+      guard oldValue != defaultValue else { return }
       updateTextWithoutNotification(text: defaultValue as String)
     }
   }
 
   @objc private var value: NSString? {
     didSet {
+      guard oldValue != value else { return }
       guard let value = value else { return }
       updateTextWithoutNotification(text: value as String)
     }
