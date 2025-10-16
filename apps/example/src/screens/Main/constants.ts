@@ -45,4 +45,10 @@ export const MENU_ITEMS: Omit<MenuItemProps<ScreenNames>, "onPress">[] = [
     testId: "validation-regex",
     emoji: "🧪",
   },
+  {
+    title: "Placeholder Change",
+    info: ScreenNames.PlaceholderChange,
+    testId: "placeholder-change",
+    emoji: "🔄",
+  },
 ];

@@ -8,6 +8,7 @@ const enum ScreenNames {
   ControlledInput = "ControlledInput",
   AllowedKeys = "AllowedKeys",
   ValidationRegex = "ValidationRegex",
+  PlaceholderChange = "PlaceholderChange",
 }
 
 export default ScreenNames;
