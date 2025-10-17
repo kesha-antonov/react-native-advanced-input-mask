@@ -7,6 +7,7 @@ import DateScreen from "../../screens/Date";
 import IBAN from "../../screens/IBAN";
 import Main from "../../screens/Main";
 import Phone from "../../screens/Phone";
+import PlaceholderChange from "../../screens/PlaceholderChange";
 import RNTextInput from "../../screens/RNTextInput";
 import ValidationRegex from "../../screens/ValidationRegEx";
 import ScreenNames from "../screenNames";
@@ -66,6 +67,12 @@ const RootStack = createNativeStackNavigator({
         title: "Validation Regex 🧪",
       },
       screen: ValidationRegex,
+    },
+    [ScreenNames.PlaceholderChange]: {
+      options: {
+        title: "Placeholder Change 🔄",
+      },
+      screen: PlaceholderChange,
     },
   },
 });
